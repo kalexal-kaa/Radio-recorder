@@ -1,2 +1,2 @@
-# Radio-recorder
+# RadioPlayer
 Radio with the ability to record stations
