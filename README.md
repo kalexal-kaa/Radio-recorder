@@ -3,4 +3,4 @@ Radio with the ability to record stations
 
 ![][logo]
 
-[logo]: /screenshot2.png "Logo text"
+[logo]: /screenshot.png "Logo text"
