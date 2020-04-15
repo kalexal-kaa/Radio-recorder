@@ -113,16 +113,25 @@ public class PlayerController implements Initializable {
         alert.setContentText("Путь по умолчанию для ваших записей:\n"+f.getAbsolutePath()+"\nИзменить?");
         
         ButtonType buttonTypeEdit = new ButtonType("Изменить", ButtonBar.ButtonData.OK_DONE);
-        ButtonType buttonTypeDefault = new ButtonType("По Умолчанию", ButtonBar.ButtonData.CANCEL_CLOSE);
+        ButtonType buttonTypeDefault = new ButtonType("По Умолчанию", ButtonBar.ButtonData.FINISH);
+        ButtonType buttonTypeCancel = new ButtonType("Отмена", ButtonBar.ButtonData.CANCEL_CLOSE);
         
-        alert.getButtonTypes().setAll(buttonTypeEdit, buttonTypeDefault);
+        alert.getButtonTypes().setAll(buttonTypeEdit, buttonTypeDefault, buttonTypeCancel);
         
         final Optional<ButtonType> resultAlert = alert.showAndWait();
         if(resultAlert.get()==buttonTypeEdit){
             startDirectoryChooser(false);
         }else{
-            writer(file.getAbsolutePath(), f.getAbsolutePath());
-        }
+            if (resultAlert.get() != buttonTypeDefault) {
+                    toast.setMessage("запись отменена");
+                    return;
+                }
+                writer(file.getAbsolutePath(), f.getAbsolutePath());
+            }
+       }
+       if(!new File(reader(file.getAbsolutePath())).exists()){
+           recordAction();
+           return;
        }
        taskRecord=new Task() {
             @Override
