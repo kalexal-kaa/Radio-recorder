@@ -205,19 +205,23 @@ public class PlayerController implements Initializable {
         if (result.get()==createButtonType){
             if (isEmpty(stationName.getText())){
                 alertWindow("Станция не будет создана:\nне указано название станции");
+                addAction();
                 return;
             }
             if (isEmpty(url.getText())){
                 alertWindow("Станция не будет создана:\nне указан url станции");
+                addAction();
                 return;
             }
             if (incorrectSymbols(stationName.getText())){
                 alertWindow("Станция не будет создана:\nОбнаружены недопустимые символы в названии станции");
+                addAction();
                 return;
             }
             File file = new File(path+separator+stationName.getText().trim());
             if (file.exists()) {
                 alertWindow("Станция не будет создана:\nСтанция с таким названием уже существует.");
+                addAction();
                 return;
             }
                 writer(file.getAbsolutePath(), url.getText());
@@ -289,16 +293,19 @@ public class PlayerController implements Initializable {
 
         Optional<ButtonType> result = dialog.showAndWait();
         if (result.get()==saveButtonType){
-            if (isEmpty(stationName.toString())){
+            if (isEmpty(stationName.getText())){
                 alertWindow("Станция не будет изменена:\nне указано название станции");
+                editAction();
                 return;
             }
-            if (isEmpty(url.toString())){
+            if (isEmpty(url.getText())){
                 alertWindow("Станция не будет изменена:\nне указан url станции");
+                editAction();
                 return;
             }
             if (incorrectSymbols(stationName.getText())){
                 alertWindow("Станция не будет изменена:\nОбнаружены недопустимые символы в названии станции");
+                editAction();
                 return;
             }
             
@@ -315,6 +322,7 @@ public class PlayerController implements Initializable {
             }else{
                 if (!selectFile.getName().equals(editFile.getName())) {
                     alertWindow("Станция не будет изменена:\nСтанция с таким названием уже существует.");
+                    editAction();
                     return;
                 }
                 writer(editFile.getAbsolutePath(), url.getText());
