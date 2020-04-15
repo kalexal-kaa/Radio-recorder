@@ -33,7 +33,8 @@ and open the template in the editor.
 }
 .toast{
     -fx-background-radius: 30;
-    -fx-background-color: rgb(132, 132, 132);
+    -fx-border-radius: 30;
+    -fx-background-color: black;
     -fx-padding: 20;
 }
 #nameStation{

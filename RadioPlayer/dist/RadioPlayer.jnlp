@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" java-vm-args="-splash:src/images/splash.png "  href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="RadioPlayer.jar" size="293845" download="eager" />
+    <jar href="RadioPlayer.jar" size="293838" download="eager" />
     <jar href="lib/jl1.0.1.jar" size="105363" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="radioplayer.Splash"  name="RadioPlayer" />
