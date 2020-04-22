@@ -235,6 +235,7 @@ public class PlayerController implements Initializable {
             }
                 writer(file.getAbsolutePath(), url.getText());
                 showStationsList();
+                stationsListView.scrollTo(file.getName());
                 stationsListView.getSelectionModel().select(file.getName());
         }
     }
@@ -337,6 +338,7 @@ public class PlayerController implements Initializable {
                 writer(editFile.getAbsolutePath(), url.getText());
             }
             showStationsList();
+            stationsListView.scrollTo(editFile.getName());
             stationsListView.getSelectionModel().select(editFile.getName());
         }
     }
